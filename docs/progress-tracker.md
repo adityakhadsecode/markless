@@ -120,6 +120,7 @@
   - **Visuals**: Grounded visual moments in mathematical reality: integrated microscopic pixel inspection telemetry badge in the specification section and calibrated live Veo ROI optical reticle with crosshairs and coordinate overlays in `VideoTuner`.
   - **Motion**: Stripped bouncy `hover:scale-105` on dropzone and `active:scale-95` on buttons; standardized CSS transitions on a single `cubic-bezier(0.22, 1, 0.36, 1)` easing curve.
   - Resolved `next/font/google` Turbopack variable font build error in `src/app/layout.tsx`. Production build verified clean in 1.2s.
+  - Restored architectural monumental display headline in hero (`REMOVE WATERMARKS. NO BLUR NO ARTIFACTS` at Space Grotesk 800 with tight 0.92 line-height) per brand specifications.
 
 ---
 
