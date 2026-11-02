@@ -62,15 +62,15 @@ export function TuningDrawer({
   };
 
   return (
-    <div className="flex flex-col gap-5 rounded-[22px] border-[1.5px] border-[#000000] bg-[#ffffff] p-5 text-sm font-sans">
+    <div className="flex flex-col gap-4 rounded-[18px] border border-[#000000] bg-[#ffffff] p-5 text-sm font-sans">
       {/* Header */}
-      <div className="flex items-center justify-between border-b-[1.5px] border-[#c0c2a9] pb-3">
+      <div className="flex items-center justify-between border-b border-[#c0c2a9] pb-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-[9px] border-[1.5px] border-[#000000] bg-[#aafdc0] text-[#000000]">
+          <div className="flex h-7 w-7 items-center justify-center rounded-[8px] border border-[#000000] bg-[#aafdc0] text-[#000000]">
             <Sliders className="h-3.5 w-3.5" />
           </div>
-          <span className="font-bold text-base text-[#000000] tracking-tight uppercase">
-            Restoration Tuning
+          <span className="font-semibold text-base text-[#000000] tracking-tight">
+            Restoration tuning
           </span>
         </div>
         <Button
@@ -80,38 +80,38 @@ export function TuningDrawer({
           className="text-xs text-[#5a5a4f] hover:text-[#000000] h-7 font-mono"
         >
           <RotateCcw className="h-3 w-3 mr-1" />
-          Reset Defaults
+          Reset defaults
         </Button>
       </div>
 
       {/* 1. Profile Mode Selection */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <label className="text-xs font-semibold text-[#000000] uppercase tracking-wider font-mono">
-            Watermark Profile
+          <label className="text-xs font-medium text-[#000000] font-mono">
+            Watermark profile
           </label>
           {detectedVariant && (
             <Badge variant="outline" className="font-mono text-[10px] bg-[#edeee1] text-[#000000] border-[#c0c2a9]">
-              Matched: {detectedVariant.toUpperCase()}
+              Matched: {detectedVariant}
             </Badge>
           )}
         </div>
-        <div className="grid grid-cols-3 gap-1.5 rounded-[13px] border-[1.5px] border-[#c0c2a9] bg-[#edeee1] p-1">
+        <div className="grid grid-cols-3 gap-1 rounded-[10px] border border-[#c0c2a9] bg-[#edeee1] p-1">
           <button
             type="button"
             onClick={() => setProfile("auto")}
-            className={`rounded-[9px] py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-[7px] py-1.5 text-xs font-medium transition-colors duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               options.profile === "auto"
                 ? "bg-[#202020] text-[#ffffff]"
                 : "text-[#5a5a4f] hover:text-[#000000]"
             }`}
           >
-            Auto Detect
+            Auto detect
           </button>
           <button
             type="button"
             onClick={() => setProfile("v2")}
-            className={`rounded-[9px] py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-[7px] py-1.5 text-xs font-medium transition-colors duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               options.profile === "v2"
                 ? "bg-[#202020] text-[#ffffff]"
                 : "text-[#5a5a4f] hover:text-[#000000]"
@@ -122,7 +122,7 @@ export function TuningDrawer({
           <button
             type="button"
             onClick={() => setProfile("v1")}
-            className={`rounded-[9px] py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-[7px] py-1.5 text-xs font-medium transition-colors duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               options.profile === "v1"
                 ? "bg-[#202020] text-[#ffffff]"
                 : "text-[#5a5a4f] hover:text-[#000000]"
@@ -143,10 +143,10 @@ export function TuningDrawer({
       {/* 2. Detection Sensitivity Threshold */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <label className="text-xs font-semibold text-[#000000] uppercase tracking-wider font-mono">
-            Confidence Threshold
+          <label className="text-xs font-medium text-[#000000] font-mono">
+            Confidence threshold
           </label>
-          <span className="font-mono text-xs font-bold text-[#000000]">
+          <span className="font-mono text-xs font-semibold text-[#000000] tabular-nums">
             {(options.threshold * 100).toFixed(0)}%
           </span>
         </div>
@@ -158,10 +158,10 @@ export function TuningDrawer({
           onValueChange={setThreshold}
           className="my-1"
         />
-        <div className="flex items-center justify-between text-[10px] text-[#5a5a4f] font-mono">
-          <span>10% (Sensitive)</span>
+        <div className="flex items-center justify-between text-[10px] text-[#5a5a4f] font-mono tabular-nums">
+          <span>10% (sensitive)</span>
           <span>Default: 25%</span>
-          <span>80% (Strict)</span>
+          <span>80% (strict)</span>
         </div>
 
         {/* Force Removal Checkbox */}
@@ -170,7 +170,7 @@ export function TuningDrawer({
             type="checkbox"
             checked={options.force}
             onChange={(e) => setForce(e.target.checked)}
-            className="h-4 w-4 rounded-[4px] border-[1.5px] border-[#000000] accent-[#202020] cursor-pointer"
+            className="h-3.5 w-3.5 rounded-[4px] border border-[#000000] accent-[#202020] cursor-pointer"
           />
           <span className="text-xs font-medium text-[#202020]">
             Force removal even if detection confidence is low
@@ -178,20 +178,20 @@ export function TuningDrawer({
         </label>
       </div>
 
-      {/* 3. Soft Inpainting (Residual Edge Smoothing) Pastel Card */}
-      <div className="flex flex-col gap-3 rounded-[13px] border-[1.5px] border-[#c0c2a9] bg-[#edeee1] p-3.5">
+      {/* 3. Soft Inpainting (Residual Edge Smoothing) Card */}
+      <div className="flex flex-col gap-3 rounded-[12px] border border-[#c0c2a9] bg-[#edeee1] p-3.5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Wand2 className="h-4 w-4 text-[#000000]" />
-            <span className="text-xs font-bold text-[#000000] uppercase font-mono">
-              Residual Edge Smoothing
+            <span className="text-xs font-semibold text-[#000000] font-mono">
+              Residual edge smoothing
             </span>
           </div>
           <input
             type="checkbox"
             checked={Boolean(options.softInpaint)}
             onChange={(e) => toggleInpaint(e.target.checked)}
-            className="h-4 w-4 rounded-[4px] border-[1.5px] border-[#000000] accent-[#202020] cursor-pointer"
+            className="h-3.5 w-3.5 rounded-[4px] border border-[#000000] accent-[#202020] cursor-pointer"
           />
         </div>
 
@@ -204,8 +204,8 @@ export function TuningDrawer({
             {/* Strength */}
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-[#5a5a4f]">Smoothing Strength</span>
-                <span className="font-bold text-[#000000]">
+                <span className="text-[#5a5a4f]">Smoothing strength</span>
+                <span className="font-semibold text-[#000000] tabular-nums">
                   {(options.softInpaint.strength * 100).toFixed(0)}%
                 </span>
               </div>
@@ -221,8 +221,8 @@ export function TuningDrawer({
             {/* Radius */}
             <div className="flex flex-col gap-1">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-[#5a5a4f]">Filter Radius</span>
-                <span className="font-bold text-[#000000]">
+                <span className="text-[#5a5a4f]">Filter radius</span>
+                <span className="font-semibold text-[#000000] tabular-nums">
                   {options.softInpaint.radius} px
                 </span>
               </div>

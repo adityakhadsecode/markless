@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Markless Launch Video</title>
+    <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --color-cream-parchment: #f8f9eb;
+        --color-pure-white: #ffffff;
+        --color-obsidian: #000000;
+        --color-charcoal: #202020;
+        --color-sage-mist: #c0c2a9;
+        --color-olive-slate: #5a5a4f;
+        --color-forest-depths: #003d21;
+        --color-mint-sprout: #aafdc0;
+        --color-lilac-wash: #d3beff;
+        --color-sky-wash: #b0f4ff;
+        --color-rose-wash: #ffc0e6;
+        --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000000;
+        font-family: var(--font-display);
+        color: var(--color-obsidian);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background: var(--color-cream-parchment);
+      }
+
+      .font-display { font-family: var(--font-display); }
+      .font-mono { font-family: var(--font-mono); }
+
+      /* Scene containers */
+      .scene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* -------------------------------------------------------------
+         SCENE 1: TYPEWRITER HOOK (0.00s - 3.50s)
+         ------------------------------------------------------------- */
+      #scene-1 {
+        background: var(--color-cream-parchment);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px;
+        z-index: 10;
+      }
+
+      .typewriter-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 120px;
+        margin-bottom: 30px;
+      }
+
+      .typewriter-heading {
+        font-size: 82px;
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--color-obsidian);
+      }
+
+      .typewriter-cursor {
+        display: inline-block;
+        width: 6px;
+        height: 76px;
+        background: var(--color-obsidian);
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .no-problem-card {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 48px;
+        border-radius: 22px;
+        border: 2.5px solid var(--color-obsidian);
+        background: var(--color-mint-sprout);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        transform: scale(0.4) rotate(-5deg);
+      }
+
+      .no-problem-text {
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 0.90;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        color: var(--color-forest-depths);
+      }
+
+      /* -------------------------------------------------------------
+         SCENE 2: CODA HERO & STUDIO SELECTION (3.50s - 7.50s)
+         ------------------------------------------------------------- */
+      #scene-2 {
+        background: var(--color-cream-parchment);
+        display: flex;
+        flex-direction: column;
+        z-index: 20;
+      }
+
+      .coda-announcement-bar {
+        width: 100%;
+        background: var(--color-charcoal);
+        color: var(--color-cream-parchment);
+        padding: 12px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .coda-nav {
+        width: 100%;
+        padding: 24px 64px 0 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-title {
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--color-obsidian);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hero-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 40px 40px 40px;
+      }
+
+      .hero-headline {
+        font-size: 96px;
+        font-weight: 800;
+        line-height: 0.90;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--color-obsidian);
+        max-width: 1400px;
+        margin: 24px 0;
+      }
+
+      .hero-subhead {
+        font-size: 22px;
+        line-height: 1.35;
+        color: var(--color-olive-slate);
+        max-width: 860px;
+        margin-bottom: 36px;
+      }
+
+      .studio-segmented-control {
+        display: inline-flex;
+        padding: 6px;
+        border-radius: 18px;
+        border: 1.5px solid var(--color-sage-mist);
+        background: var(--color-pure-white);
+        gap: 6px;
+        position: relative;
+      }
+
+      .studio-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 28px;
+        border-radius: 13px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .studio-btn.active {
+        background: var(--color-charcoal);
+        color: #ffffff;
+      }
+
+      .studio-btn.inactive {
+        background: transparent;
+        color: var(--color-olive-slate);
+      }
+
+      /* -------------------------------------------------------------
+         SCENE 3: WORKSPACE & WATERMARK FOCUS (7.50s - 12.00s)
+         ------------------------------------------------------------- */
+      #scene-3 {
+        background: var(--color-cream-parchment);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 40px;
+        z-index: 30;
+      }
+
+      .workspace-card {
+        width: 1480px;
+        height: 840px;
+        background: var(--color-pure-white);
+        border: 1.5px solid var(--color-obsidian);
+        border-radius: 28px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .telemetry-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
+
+      .telemetry-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1.5px solid var(--color-sage-mist);
+        font-weight: 700;
+        background: #ffffff;
+      }
+
+      .pill-mint {
+        background: var(--color-mint-sprout);
+        border-color: #000000;
+        color: #003d21;
+      }
+
+      .viewer-viewport {
+        flex: 1;
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        border: 1.5px solid var(--color-obsidian);
+        background: #000000;
+      }
+
+      .image-layer-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-origin: 88% 88%;
+      }
+
+      .galaxy-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .watermark-target-box {
+        position: absolute;
+        bottom: 22px;
+        right: 22px;
+        width: 140px;
+        height: 140px;
+        border: 2px dashed #aafdc0;
+        border-radius: 14px;
+        background: rgba(170, 253, 192, 0.15);
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 8px;
+        opacity: 0;
+        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(170, 253, 192, 0.4);
+      }
+
+      /* -------------------------------------------------------------
+         SCENE 4: SHATTER & 100% CLEAN REVEAL (12.00s - 16.50s)
+         ------------------------------------------------------------- */
+      #scene-4 {
+        background: var(--color-cream-parchment);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 40px;
+        z-index: 40;
+      }
+
+      .shatter-overlay-container {
+        position: absolute;
+        bottom: 26px;
+        right: 26px;
+        width: 130px;
+        height: 130px;
+        pointer-events: none;
+      }
+
+      .shatter-piece {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: center center;
+      }
+
+      /* -------------------------------------------------------------
+         SCENE 5: OUTRO CLIMAX & BRAND SLAM (16.50s - 20.00s)
+         ------------------------------------------------------------- */
+      #scene-5 {
+        background: var(--color-forest-depths);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 50;
+      }
+
+      .outro-headline {
+        font-size: 88px;
+        font-weight: 800;
+        line-height: 0.92;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--color-mint-sprout);
+        margin-bottom: 24px;
+      }
+
+      .outro-sub {
+        font-size: 26px;
+        color: #ffffff;
+        opacity: 0.9;
+        max-width: 900px;
+        margin-bottom: 48px;
+        font-weight: 500;
+      }
+
+      .brand-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 44px 80px;
+        background: #002816;
+        border: 2px solid var(--color-mint-sprout);
+        border-radius: 36px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      }
+
+      .brand-title {
+        font-size: 110px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 0.90;
+        color: #ffffff;
+      }
+
+      /* Simulated mouse cursor */
+      .fake-cursor {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Simulated Mouse Cursor -->
+      <svg
+        id="cursor"
+        class="fake-cursor"
+        viewBox="0 0 24 24"
+        fill="#000000"
+        stroke="#ffffff"
+        stroke-width="1.5"
+      >
+        <path d="M3 3l7 18 3-7 7-3L3 3z" />
+      </svg>
+
+      <!-- ============================================================
+           SCENE 1: TYPEWRITER HOOK (0.00s - 3.50s)
+           ============================================================ -->
+      <section id="scene-1" class="scene">
+        <div class="font-mono" style="margin-bottom: 24px; padding: 6px 16px; border-radius: 9999px; border: 1.5px solid var(--color-sage-mist); background: #ffffff; font-size: 13px; font-weight: 700; text-transform: uppercase;">
+          AI WATERMARK RESTORATION
+        </div>
+
+        <div class="typewriter-container">
+          <h1 id="typewriter-text" class="typewriter-heading font-display"></h1>
+          <span id="typewriter-cursor" class="typewriter-cursor"></span>
+        </div>
+
+        <div id="no-problem-badge" class="no-problem-card">
+          <span class="no-problem-text font-display">NO PROBLEM!</span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SCENE 2: CODA HERO & STUDIO SELECTION (3.50s - 7.50s)
+           ============================================================ -->
+      <section id="scene-2" class="scene">
+        <!-- Coda Announcement Bar -->
+        <div class="coda-announcement-bar" data-layout-allow-overflow>
+          <div>MARKLESS V2.0 // 100% IN-BROWSER REVERSE ALPHA BLENDING</div>
+          <div style="display: flex; gap: 24px;">
+            <span>ZERO CLOUD UPLOADS</span>
+            <span>LOSSLESS AUDIO</span>
+            <span>GITHUB OPEN SOURCE</span>
+          </div>
+        </div>
+
+        <!-- Top Navigation (NO LOGO, JUST CLEAN MONUMENTAL TEXT) -->
+        <header class="coda-nav">
+          <div class="logo-title">
+            <span>MARKLESS</span>
+            <span
+              class="font-mono"
+              style="font-size: 11px; padding: 4px 8px; border-radius: 6px; background: #edeee1; border: 1.5px solid #c0c2a9; font-weight: 700;"
+            >
+              V2.0
+            </span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <div
+              class="font-mono"
+              style="font-size: 13px; font-weight: 700; color: #003d21; background: #aafdc0; padding: 6px 14px; border-radius: 9999px; border: 1.5px solid #000000;"
+            >
+              100% PRIVATE
+            </div>
+            <button
+              class="font-display"
+              style="background: #202020; color: #ffffff; border-radius: 13px; padding: 10px 22px; font-size: 14px; font-weight: 700; border: none;"
+            >
+              Launch Studio →
+            </button>
+          </div>
+        </header>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <div
+            class="font-mono"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; border: 1.5px solid #c0c2a9; background: #ffffff; font-size: 12px; font-weight: 700; text-transform: uppercase;"
+          >
+            DETERMINISTIC RESTORATION ENGINE
+          </div>
+
+          <h1 id="hero-headline" class="hero-headline">
+            REMOVE WATERMARKS.<br />
+            <span style="color: #202020;">NO BLUR NO ARTIFACTS</span>
+          </h1>
+
+          <p class="hero-subhead">
+            Deterministic reverse alpha blending for Gemini & Veo. Zero cloud uploads, zero generative hallucinations.
+          </p>
+
+          <!-- Tactile Studio Switcher -->
+          <div id="studio-switcher" class="studio-segmented-control">
+            <div id="btn-image-studio" class="studio-btn active">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span>Image Studio</span>
+              <span class="font-mono" style="font-size: 10px; background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 9999px;">
+                GEMINI
+              </span>
+            </div>
+
+            <div id="btn-video-studio" class="studio-btn inactive">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              <span>Video Studio</span>
+              <span class="font-mono" style="font-size: 10px; background: #edeee1; color: #5a5a4f; padding: 2px 8px; border-radius: 9999px;">
+                VEO
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SCENE 3: WORKSPACE & WATERMARK FOCUS (7.50s - 12.00s)
+           ============================================================ -->
+      <section id="scene-3" class="scene">
+        <div id="workspace-container-3" class="workspace-card">
+          <!-- Telemetry Header -->
+          <div class="telemetry-row">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span class="telemetry-pill pill-mint">
+                IMAGE STUDIO ACTIVE
+              </span>
+              <span class="telemetry-pill">2752 × 1536</span>
+              <span class="telemetry-pill">PROFILE: V2 LARGE</span>
+              <span id="status-pill-3" class="telemetry-pill" style="border-color: #000000; color: #003d21;">
+                3-STAGE NCC DETECTING...
+              </span>
+            </div>
+
+            <div class="telemetry-pill" style="background: #edeee1; color: #5a5a4f;">
+              LOCAL WEB WORKER
+            </div>
+          </div>
+
+          <!-- Viewer Viewport with real Galaxy Watermarked Image -->
+          <div id="viewer-viewport-3" class="viewer-viewport">
+            <div id="image-zoom-wrapper-3" class="image-layer-wrapper" data-layout-allow-overflow>
+              <img
+                src="assets/images/galaxy_watermark.png"
+                alt="Galaxy With Watermark"
+                class="galaxy-img"
+              />
+
+              <!-- Watermark Selector Target Box -->
+              <div id="watermark-selector-box" class="watermark-target-box">
+                <span class="font-mono" style="font-size: 10px; font-weight: 800; color: #003d21; background: #aafdc0; padding: 2px 6px; border-radius: 4px; align-self: flex-start;">
+                  TARGET 96×96
+                </span>
+                <span class="font-mono" style="font-size: 9px; font-weight: 700; color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
+                  X: 2512 Y: 1296
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SCENE 4: SHATTER & 100% CLEAN REVEAL (12.00s - 16.50s)
+           ============================================================ -->
+      <section id="scene-4" class="scene">
+        <div id="workspace-container-4" class="workspace-card">
+          <!-- Telemetry Header -->
+          <div class="telemetry-row">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span class="telemetry-pill pill-mint">
+                ✓ WATERMARK REMOVED EXACT
+              </span>
+              <span class="telemetry-pill">2752 × 1536</span>
+              <span class="telemetry-pill">ZERO ARTIFACTS</span>
+            </div>
+
+            <div class="telemetry-pill" style="background: #aafdc0; color: #003d21; border-color: #000000;">
+              RESIDUAL MAE: 0.1160 LSBs
+            </div>
+          </div>
+
+          <!-- Viewport with Clean Galaxy Image + Shatter Fragments -->
+          <div class="viewer-viewport">
+            <div id="image-zoom-wrapper-4" class="image-layer-wrapper" data-layout-allow-overflow>
+              <!-- Base Layer: 100% Clean Image -->
+              <img
+                src="assets/images/galaxy_clean.png"
+                alt="Galaxy Clean No Watermark"
+                class="galaxy-img"
+              />
+
+              <!-- Shockwave Ring on Impact -->
+              <div
+                id="shatter-shockwave"
+                style="position: absolute; bottom: 45px; right: 45px; width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 0 20px #ffffff; opacity: 0; pointer-events: none;"
+              ></div>
+
+              <!-- Shatter Polygon Shards -->
+              <div id="shatter-group" class="shatter-overlay-container">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" style="overflow: visible;">
+                  <polygon id="shard-1" class="shatter-piece" points="50,10 60,35 50,45" fill="#ffffff" />
+                  <polygon id="shard-2" class="shatter-piece" points="50,10 40,35 50,45" fill="#ffffff" />
+                  <polygon id="shard-3" class="shatter-piece" points="90,50 65,40 55,50" fill="#ffffff" />
+                  <polygon id="shard-4" class="shatter-piece" points="90,50 65,60 55,50" fill="#ffffff" />
+                  <polygon id="shard-5" class="shatter-piece" points="50,90 60,65 50,55" fill="#ffffff" />
+                  <polygon id="shard-6" class="shatter-piece" points="50,90 40,65 50,55" fill="#ffffff" />
+                  <polygon id="shard-7" class="shatter-piece" points="10,50 35,40 45,50" fill="#ffffff" />
+                  <polygon id="shard-8" class="shatter-piece" points="10,50 35,60 45,50" fill="#ffffff" />
+                  <polygon id="shard-9" class="shatter-piece" points="50,50 40,40 45,35" fill="#ffffff" />
+                  <polygon id="shard-10" class="shatter-piece" points="50,50 60,40 55,35" fill="#ffffff" />
+                  <polygon id="shard-11" class="shatter-piece" points="50,50 60,60 55,65" fill="#ffffff" />
+                  <polygon id="shard-12" class="shatter-piece" points="50,50 40,60 45,65" fill="#ffffff" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SCENE 5: OUTRO CLIMAX & BRAND SLAM (16.50s - 20.00s)
+           ============================================================ -->
+      <section id="scene-5" class="scene">
+        <div style="position: absolute; top: -100px; right: -100px; width: 600px; height: 600px; border-radius: 50%; background: #aafdc0; opacity: 0.12; filter: blur(80px);"></div>
+        <div style="position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px; border-radius: 50%; background: #aafdc0; opacity: 0.10; filter: blur(70px);"></div>
+
+        <div style="z-index: 10; display: flex; flex-direction: column; align-items: center;">
+          <h2 class="outro-headline font-display">
+            MATHEMATICALLY EXACT.<br />
+            NEVER GENERATIVE.
+          </h2>
+          <p class="outro-sub">
+            Zero cloud uploads. Zero blurring. 100% private in-browser media restoration.
+          </p>
+
+          <!-- Monumental Text Brand (NO LOGO SVG) -->
+          <div id="brand-box" class="brand-box">
+            <span class="brand-title font-display">MARKLESS</span>
+            <div
+              class="font-mono"
+              style="font-size: 14px; font-weight: 700; color: #aafdc0; letter-spacing: 0.14em; text-transform: uppercase;"
+            >
+              // REVERSE ALPHA ENGINE • 100% IN-BROWSER
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; margin-top: 36px; font-family: var(--font-mono); font-size: 13px; font-weight: 700;">
+            <span style="background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 9999px;">
+              FREE & OPEN SOURCE
+            </span>
+            <span style="background: #aafdc0; color: #003d21; border: 1.5px solid #000000; padding: 8px 18px; border-radius: 9999px;">
+              RUNS 100% LOCALLY
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           AUDIO TRACKS (Tracks 10 to 19)
+           ============================================================ -->
+      <!-- Background Music Bed -->
+      <audio
+        id="bg-music"
+        class="clip"
+        data-start="0"
+        data-duration="20"
+        data-track-index="10"
+        data-volume="0.32"
+        src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"
+      ></audio>
+
+      <!-- SFX: Typewriter Keypress Sequence (Scene 1) -->
+      <audio
+        id="sfx-typing"
+        class="clip"
+        data-start="0.5"
+        data-duration="1.37"
+        data-track-index="11"
+        data-volume="0.85"
+        src="assets/sfx/interface/typing.wav"
+      ></audio>
+
+      <!-- SFX: No Problem Positive Hit (Scene 1) -->
+      <audio
+        id="sfx-no-problem"
+        class="clip"
+        data-start="2.1"
+        data-duration="0.25"
+        data-track-index="12"
+        data-volume="0.85"
+        src="assets/sfx/casino/chips-collide-1.ogg"
+      ></audio>
+
+      <!-- SFX: Accurate Mouse Click on Image Studio (Scene 2) -->
+      <audio
+        id="sfx-click-switcher"
+        class="clip"
+        data-start="5.4"
+        data-duration="0.10"
+        data-track-index="13"
+        data-volume="0.85"
+        src="assets/sfx/ui/mouseclick1.ogg"
+      ></audio>
+
+      <!-- SFX: Image Load into Workspace (Scene 3) -->
+      <audio
+        id="sfx-image-load"
+        class="clip"
+        data-start="7.6"
+        data-duration="0.11"
+        data-track-index="14"
+        data-volume="0.80"
+        src="assets/sfx/interface/drop_001.ogg"
+      ></audio>
+
+      <!-- SFX: Watermark Selector Locked (Scene 3) -->
+      <audio
+        id="sfx-selector-lock"
+        class="clip"
+        data-start="8.8"
+        data-duration="0.20"
+        data-track-index="15"
+        data-volume="0.75"
+        src="assets/sfx/ui/switch6.ogg"
+      ></audio>
+
+      <!-- SFX: Focus Zoom In Impact (Scene 3) -->
+      <audio
+        id="sfx-focus-zoom"
+        class="clip"
+        data-start="9.5"
+        data-duration="0.20"
+        data-track-index="16"
+        data-volume="0.80"
+        src="assets/sfx/impact/impactSoft_medium_001.ogg"
+      ></audio>
+
+      <!-- SFX: Watermark Glass Shatter (Scene 4) -->
+      <audio
+        id="sfx-shatter"
+        class="clip"
+        data-start="12.4"
+        data-duration="0.25"
+        data-track-index="17"
+        data-volume="0.95"
+        src="assets/sfx/impact/impactGlass_heavy_002.ogg"
+      ></audio>
+
+      <!-- SFX: Clean Reveal Sweep (Scene 4) -->
+      <audio
+        id="sfx-reveal-sweep"
+        class="clip"
+        data-start="13.6"
+        data-duration="0.25"
+        data-track-index="18"
+        data-volume="0.70"
+        src="assets/sfx/casino/card-slide-2.ogg"
+      ></audio>
+
+      <!-- SFX: Final Outro Logo Resonant Bell (Scene 5) -->
+      <audio
+        id="sfx-outro-bell"
+        class="clip"
+        data-start="17.0"
+        data-duration="1.50"
+        data-track-index="19"
+        data-volume="0.90"
+        src="assets/sfx/impact/impactBell_heavy_000.ogg"
+      ></audio>
+    </div>
+
+    <!-- ============================================================
+         GSAP ANIMATION SCRIPT (SEEK-SAFE FOR HYPERFRAMES)
+         ============================================================ -->
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // -------------------------------------------------------------
+      // SCENE 1 (0.00s - 3.50s): TYPEWRITER HOOK & NO PROBLEM!
+      // -------------------------------------------------------------
+      tl.set("#scene-1", { opacity: 1, pointerEvents: "auto" }, 0);
+
+      // Blinking cursor before and during typing
+      tl.to("#typewriter-cursor", { opacity: 0, repeat: 7, yoyo: true, duration: 0.18 }, 0);
+
+      // Seek-safe Typewriter Effect: "Gemini watermarked your image?"
+      const typewriterPhrase = "Gemini watermarked your image?";
+      for (let i = 1; i <= typewriterPhrase.length; i++) {
+        const textSlice = typewriterPhrase.slice(0, i);
+        const timePoint = 0.5 + (i / typewriterPhrase.length) * 1.3;
+        tl.set("#typewriter-text", { textContent: textSlice }, timePoint);
+      }
+
+      // Cursor hides when "No Problem!" appears
+      tl.set("#typewriter-cursor", { display: "none" }, 2.0);
+
+      // "NO PROBLEM!" pops in with massive bounce
+      tl.fromTo(
+        "#no-problem-badge",
+        { scale: 0.3, opacity: 0, rotation: -8 },
+        { scale: 1.0, opacity: 1, rotation: 0, duration: 0.45, ease: "back.out(2.0)" },
+        2.1
+      );
+
+      // Fade out Scene 1
+      tl.to("#scene-1", { opacity: 0, duration: 0.3 }, 3.3);
+
+      // -------------------------------------------------------------
+      // SCENE 2 (3.50s - 7.50s): HERO REVEAL & ACCURATE MOUSE CLICK
+      // -------------------------------------------------------------
+      tl.set("#scene-2", { opacity: 1, pointerEvents: "auto" }, 3.5);
+      tl.fromTo(
+        "#scene-2",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power2.out" },
+        3.5
+      );
+
+      // Monumental headline punch
+      tl.fromTo(
+        "#hero-headline",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" },
+        3.65
+      );
+
+      // Accurate simulated mouse cursor movement to "Image Studio" button
+      // Center of Image Studio button in 1920 layout is at x: 864, y: 608
+      tl.set("#cursor", { opacity: 1, x: 1200, y: 780 }, 4.3);
+      tl.to(
+        "#cursor",
+        { x: 864, y: 608, duration: 0.9, ease: "power2.out" },
+        4.5
+      );
+
+      // Mouse click on "Image Studio" button
+      tl.to("#cursor", { scale: 0.82, duration: 0.08 }, 5.4);
+      tl.to("#btn-image-studio", { scale: 0.93, duration: 0.08 }, 5.4);
+      tl.to("#cursor", { scale: 1.0, duration: 0.12 }, 5.48);
+      tl.to("#btn-image-studio", { scale: 1.0, duration: 0.12 }, 5.48);
+
+      // Studio button active visual feedback (tactile outline ring pulse, maintains perfect text contrast)
+      tl.to(
+        "#btn-image-studio",
+        { boxShadow: "0 0 0 3px #aafdc0", duration: 0.2 },
+        5.48
+      );
+
+      // Cursor moves away
+      tl.to("#cursor", { x: 600, y: 400, opacity: 0, duration: 0.5 }, 5.9);
+
+      // Fade out Scene 2
+      tl.to("#scene-2", { opacity: 0, duration: 0.3 }, 7.2);
+
+      // -------------------------------------------------------------
+      // SCENE 3 (7.50s - 12.00s): WORKSPACE & WATERMARK SELECTOR FOCUS
+      // -------------------------------------------------------------
+      tl.set("#scene-3", { opacity: 1, pointerEvents: "auto" }, 7.5);
+      tl.fromTo(
+        "#workspace-container-3",
+        { scale: 0.96, opacity: 0 },
+        { scale: 1.0, opacity: 1, duration: 0.35, ease: "power3.out" },
+        7.5
+      );
+
+      // Detector locks onto the bottom-right watermark
+      tl.fromTo(
+        "#watermark-selector-box",
+        { opacity: 0, scale: 1.4 },
+        { opacity: 1, scale: 1.0, duration: 0.4, ease: "back.out(1.8)" },
+        8.8
+      );
+      tl.set(
+        "#status-pill-3",
+        { textContent: "WATERMARK LOCKED: 96×96 (99.4%)", backgroundColor: "#aafdc0", color: "#003d21" },
+        8.8
+      );
+
+      // Smooth camera zoom directly into the bottom-right watermark region
+      tl.to(
+        "#image-zoom-wrapper-3",
+        {
+          scale: 2.4,
+          x: -420,
+          y: -240,
+          duration: 1.8,
+          ease: "power2.inOut",
+        },
+        9.5
+      );
+
+      // Fade out Scene 3
+      tl.to("#scene-3", { opacity: 0, duration: 0.25 }, 11.8);
+
+      // -------------------------------------------------------------
+      // SCENE 4 (12.00s - 16.50s): SHATTER & 100% CLEAN REVEAL
+      // -------------------------------------------------------------
+      tl.set("#scene-4", { opacity: 1, pointerEvents: "auto" }, 12.0);
+      tl.set("#image-zoom-wrapper-4", { scale: 2.4, x: -420, y: -240 }, 0);
+
+      // Pre-shatter flash and violent glass dispersion
+      tl.fromTo(
+        "#shatter-shockwave",
+        { scale: 0.2, opacity: 1 },
+        { scale: 3.5, opacity: 0, duration: 0.45, ease: "power2.out" },
+        12.4
+      );
+
+      // Shards burst outward in all directions
+      tl.to("#shard-1", { x: 30, y: -90, rotation: 120, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-2", { x: -40, y: -80, rotation: -160, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-3", { x: 95, y: -25, rotation: 180, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-4", { x: 85, y: 45, rotation: -140, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-5", { x: 35, y: 95, rotation: 220, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-6", { x: -35, y: 90, rotation: -190, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-7", { x: -90, y: -30, rotation: -130, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-8", { x: -85, y: 50, rotation: 150, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-9", { x: -50, y: -50, rotation: 70, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-10", { x: 50, y: -50, rotation: -90, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-11", { x: 50, y: 50, rotation: 110, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+      tl.to("#shard-12", { x: -50, y: 50, rotation: -80, scale: 0, opacity: 0, duration: 0.7, ease: "power2.out" }, 12.4);
+
+      // Camera smoothly zooms back out to full frame to show the entire clean image
+      tl.fromTo(
+        "#image-zoom-wrapper-4",
+        { scale: 2.4, x: -420, y: -240 },
+        {
+          scale: 1.0,
+          x: 0,
+          y: 0,
+          duration: 1.6,
+          ease: "power2.inOut",
+        },
+        13.5
+      );
+
+      // Fade out Scene 4
+      tl.to("#scene-4", { opacity: 0, duration: 0.25 }, 16.3);
+
+      // -------------------------------------------------------------
+      // SCENE 5 (16.50s - 20.00s): OUTRO CLIMAX & BRAND SLAM
+      // -------------------------------------------------------------
+      tl.set("#scene-5", { opacity: 1, pointerEvents: "auto" }, 16.5);
+      tl.fromTo(
+        "#scene-5",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power4.out" },
+        16.5
+      );
+
+      // Monumental Brand Box Slam (CLEAN TEXT ONLY, NO LOGO)
+      tl.fromTo(
+        "#brand-box",
+        { scale: 0.75, opacity: 0 },
+        { scale: 1.0, opacity: 1, duration: 0.5, ease: "back.out(1.8)" },
+        17.0
+      );
+
+      // Register with Hyperframes
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

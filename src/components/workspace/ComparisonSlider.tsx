@@ -117,17 +117,17 @@ export function ComparisonSlider({
   return (
     <div className="relative flex flex-col w-full rounded-[22px] border-[1.5px] border-[#000000] bg-[#ffffff] overflow-hidden">
       {/* Top Studio Control Bar: Bone (#edeee1) background with Sage Mist border */}
-      <div className="flex h-12 items-center justify-between border-b-[1.5px] border-[#c0c2a9] bg-[#edeee1] px-4 text-xs">
+      <div className="flex h-11 items-center justify-between border-b border-[#c0c2a9] bg-[#edeee1] px-4 text-xs">
         <div className="flex items-center gap-2">
-          <Badge variant="outline" className="font-mono text-[11px] bg-[#ffffff] text-[#000000] border-[#c0c2a9]">
+          <Badge variant="outline" className="font-mono text-[11px] bg-[#ffffff] text-[#000000] border-[#c0c2a9] tabular-nums">
             {Math.round(zoom * 100)}%
           </Badge>
-          <div className="flex items-center gap-1 border-l-[1.5px] border-[#c0c2a9] pl-2">
+          <div className="flex items-center gap-1 border-l border-[#c0c2a9] pl-2">
             <Button
               variant="outline"
               size="icon-xs"
               onClick={() => setZoom((z) => Math.min(5, z + 0.25))}
-              title="Zoom In"
+              title="Zoom in"
               className="bg-[#ffffff]"
             >
               <ZoomIn className="h-3.5 w-3.5" />
@@ -136,7 +136,7 @@ export function ComparisonSlider({
               variant="outline"
               size="icon-xs"
               onClick={() => setZoom((z) => Math.max(0.5, z - 0.25))}
-              title="Zoom Out"
+              title="Zoom out"
               className="bg-[#ffffff]"
             >
               <ZoomOut className="h-3.5 w-3.5" />
@@ -145,7 +145,7 @@ export function ComparisonSlider({
               variant="outline"
               size="icon-xs"
               onClick={resetView}
-              title="Reset View"
+              title="Reset view"
               className="bg-[#ffffff]"
             >
               <Maximize2 className="h-3.5 w-3.5" />
@@ -157,10 +157,10 @@ export function ComparisonSlider({
               variant="outline"
               size="xs"
               onClick={focusWatermark}
-              className="text-[11px] font-mono h-7 border-[#000000] bg-[#aafdc0] text-[#003d21] hover:bg-[#96f2af]"
+              className="text-[11px] font-mono h-7 border border-[#000000] bg-[#aafdc0] text-[#003d21] hover:bg-[#96f2af]"
             >
-              <SlidersHorizontal className="h-3 w-3 mr-1" />
-              Focus Watermark
+              <SlidersHorizontal className="h-3.5 w-3.5 mr-1" />
+              Focus watermark
             </Button>
           )}
         </div>
@@ -177,7 +177,7 @@ export function ComparisonSlider({
             className="text-[11px] h-7 gap-1.5 font-mono"
           >
             <Eye className="h-3.5 w-3.5" />
-            <span>Hold to Peek Original</span>
+            <span>Hold to peek original</span>
             <kbd className="hidden sm:inline-block rounded-[4px] border border-[#c0c2a9] bg-[#ffffff] px-1 text-[9px] font-mono text-[#000000]">
               V
             </kbd>

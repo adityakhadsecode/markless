@@ -118,16 +118,16 @@ export function BatchDrawer({
       />
 
       {/* Drawer Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-[1.5px] border-[#c0c2a9] pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#c0c2a9] pb-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-[9px] border-[1.5px] border-[#000000] bg-[#aafdc0] text-[#000000]">
+          <div className="flex h-7 w-7 items-center justify-center rounded-[8px] border border-[#000000] bg-[#aafdc0] text-[#000000]">
             <FileArchive className="h-4 w-4" />
           </div>
-          <span className="font-bold text-sm text-[#000000] tracking-tight uppercase font-mono">
-            Image Batch Queue ({completedCount}/{items.length} Ready)
+          <span className="font-semibold text-sm text-[#000000] tracking-tight font-mono tabular-nums">
+            Image batch queue ({completedCount}/{items.length} ready)
           </span>
           {inProgressCount > 0 && (
-            <Badge variant="outline" className="text-[10px] font-mono border-[#000000] text-[#000000] bg-[#aafdc0] gap-1">
+            <Badge variant="outline" className="text-[10px] font-mono border border-[#000000] text-[#000000] bg-[#aafdc0] gap-1 tabular-nums">
               <Loader2 className="h-2.5 w-2.5 animate-spin" />
               {inProgressCount} parallel workers active
             </Badge>
@@ -140,7 +140,7 @@ export function BatchDrawer({
               type="checkbox"
               checked={autoDownloadZip}
               onChange={(e) => setAutoDownloadZip(e.target.checked)}
-              className="h-3.5 w-3.5 rounded-[4px] border-[1.5px] border-[#000000] accent-[#202020] cursor-pointer"
+              className="h-3.5 w-3.5 rounded-[4px] border border-[#000000] accent-[#202020] cursor-pointer"
             />
             Auto-download ZIP
           </label>
@@ -150,10 +150,10 @@ export function BatchDrawer({
               variant="outline"
               size="xs"
               onClick={() => fileInputRef.current?.click()}
-              className="text-xs h-7 border-[1.5px] border-[#c0c2a9] hover:border-[#000000] gap-1 font-mono"
+              className="text-xs h-7 border border-[#c0c2a9] hover:border-[#000000] gap-1 font-mono"
             >
-              <Plus className="h-3 w-3" />
-              Add More
+              <Plus className="h-3.5 w-3.5" />
+              Add more
             </Button>
           )}
 
@@ -164,7 +164,7 @@ export function BatchDrawer({
             disabled={isProcessing}
             className="text-xs h-7 text-[#5a5a4f] hover:text-[#000000] font-mono"
           >
-            <Trash2 className="h-3 w-3 mr-1" />
+            <Trash2 className="h-3.5 w-3.5 mr-1" />
             Clear
           </Button>
 

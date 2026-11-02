@@ -11,7 +11,7 @@ import {
   Plus,
   Film,
   X,
-  Sparkles,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -145,18 +145,18 @@ export function VideoBatchDrawer({
       />
 
       {/* Drawer Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-[1.5px] border-[#c0c2a9] pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#c0c2a9] pb-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-[9px] border-[1.5px] border-[#000000] bg-[#aafdc0] text-[#000000]">
+          <div className="flex h-7 w-7 items-center justify-center rounded-[8px] border border-[#000000] bg-[#aafdc0] text-[#000000]">
             <FileArchive className="h-4 w-4" />
           </div>
-          <span className="font-bold text-sm text-[#000000] tracking-tight uppercase font-mono">
-            Video Batch Queue ({completedCount}/{items.length} Completed)
+          <span className="font-semibold text-sm text-[#000000] tracking-tight font-mono tabular-nums">
+            Video batch queue ({completedCount}/{items.length} completed)
           </span>
           {isProcessing && (
-            <Badge variant="outline" className="text-[10px] font-mono border-[#000000] text-[#000000] bg-[#aafdc0] gap-1">
+            <Badge variant="outline" className="text-[10px] font-mono border border-[#000000] text-[#000000] bg-[#aafdc0] gap-1 tabular-nums">
               <Loader2 className="h-2.5 w-2.5 animate-spin" />
-              Processing Sequential
+              Processing sequential
             </Badge>
           )}
         </div>
@@ -166,10 +166,10 @@ export function VideoBatchDrawer({
             variant="outline"
             size="xs"
             onClick={() => fileInputRef.current?.click()}
-            className="text-xs h-7 border-[1.5px] border-[#c0c2a9] hover:border-[#000000] gap-1 font-mono"
+            className="text-xs h-7 border border-[#c0c2a9] hover:border-[#000000] gap-1 font-mono"
           >
-            <Plus className="h-3 w-3" />
-            Add Videos
+            <Plus className="h-3.5 w-3.5" />
+            Add videos
           </Button>
 
           <Button
@@ -179,7 +179,7 @@ export function VideoBatchDrawer({
             disabled={isProcessing}
             className="text-xs h-7 text-[#5a5a4f] hover:text-[#000000] font-mono"
           >
-            <Trash2 className="h-3 w-3 mr-1" />
+            <Trash2 className="h-3.5 w-3.5 mr-1" />
             Clear
           </Button>
 
@@ -194,9 +194,9 @@ export function VideoBatchDrawer({
               {isProcessing ? (
                 <Loader2 className="h-3 w-3 animate-spin" />
               ) : (
-                <Sparkles className="h-3 w-3" />
+                <Play className="h-3 w-3" />
               )}
-              <span>Process All ({pendingCount})</span>
+              <span>Process all ({pendingCount})</span>
             </Button>
           )}
 

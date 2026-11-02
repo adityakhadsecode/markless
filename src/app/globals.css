@@ -27,6 +27,8 @@
   --font-mono: var(--font-mono), 'JetBrains Mono', ui-monospace, monospace;
   --font-heading: var(--font-display), 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
+  --ease-craft: cubic-bezier(0.22, 1, 0.36, 1);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -77,13 +79,12 @@
 @layer base {
   * {
     border-color: var(--border);
-    box-shadow: none !important;
   }
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
-    letter-spacing: -0.01em;
+    letter-spacing: normal;
   }
   html {
     font-family: var(--font-sans);

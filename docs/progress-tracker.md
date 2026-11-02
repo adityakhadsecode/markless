@@ -104,6 +104,22 @@
   - Created `.github/workflows/deploy.yml` for automated GitHub Actions build and deploy to GitHub Pages.
   - Enabled GitHub Pages on `adityakhadsecode/markless` via GitHub API.
   - Public live URL: `https://adityakhadsecode.github.io/markless/`.
+- [x] **Official Product Launch Video (`/brag` + Hyperframes)**:
+  - Engineered 20.0s cinematic 1080p landscape launch video adhering strictly to `DESIGN.md` (warm Cream Parchment `#f8f9eb`, monumental Space Grotesk 800, JetBrains Mono, Coda announcement bar, tactile Studio switcher, and Full-Bleed Forest Depths `#003d21`).
+  - Integrated authentic user images (`galexy with watermark.png` and `galexy with no watermark.png`).
+  - Completely revamped Scene 1 with mechanical typewriter effect ("Gemini watermarked your image?") and positive animated bounce ("NO PROBLEM!").
+  - Calibrated simulated mouse cursor to accurately click the "Image Studio" button.
+  - Positioned watermark selector focused on the bottom-right watermark, followed by a violent glass shatter animation fracturing the watermark apart and revealing the pristine galaxy background.
+  - Removed all logo SVGs/glyphs across the entire video in favor of pure monumental typography.
+  - Validated via `npx hyperframes check` with 0 errors, 100% WCAG AA contrast compliance across all audited elements.
+  - Rendered `brag-output/brag.mp4`, extracted settled poster frame `brag-output/brag.jpg`, and baked poster into frame 0.
+- [x] **Phase 6: Targeted Interface Unslopping (/unslop)**:
+  - **Icons**: Stripped decorative sparkles (`Sparkles` icon imports removed across `VideoStudio`, `VideoBatchDrawer`, `MediaDropzone`, `TelemetryBadge`, and `Footer`). Removed non-functional hardcoded US flag dropdown from navigation. Standardized on 16px Lucide line icons with consistent 1.5 stroke and alignment.
+  - **Copy**: Converted shouting all-caps headings and pseudo-code comments (`// ...`) to calm, precise sentence case. Replaced ungrounded static claims (`• 99% CONFIDENCE`) with factual algorithmic descriptions (`Sub-pixel template matching`).
+  - **Type**: Reduced display font weights from 800 to 500/600 (`font-semibold`). Enforced `tabular-nums` across all numeric coordinates, dimensions, percentages, and ms timers. Eliminated negative letter spacing on small text in `globals.css`.
+  - **Visuals**: Grounded visual moments in mathematical reality: integrated microscopic pixel inspection telemetry badge in the specification section and calibrated live Veo ROI optical reticle with crosshairs and coordinate overlays in `VideoTuner`.
+  - **Motion**: Stripped bouncy `hover:scale-105` on dropzone and `active:scale-95` on buttons; standardized CSS transitions on a single `cubic-bezier(0.22, 1, 0.36, 1)` easing curve.
+  - Resolved `next/font/google` Turbopack variable font build error in `src/app/layout.tsx`. Production build verified clean in 1.2s.
 
 ---
 

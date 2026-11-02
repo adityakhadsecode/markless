@@ -9,7 +9,7 @@ import {
   RotateCcw,
   CheckCircle2,
   ShieldAlert,
-  Sparkles,
+  Film,
   Sliders,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -320,9 +320,9 @@ export function VideoStudio() {
                 {isProcessing ? (
                   <RefreshCw className="h-3.5 w-3.5 animate-spin" />
                 ) : (
-                  <Sparkles className="h-3.5 w-3.5" />
+                  <Film className="h-3.5 w-3.5" />
                 )}
-                <span>{isProcessing ? "Processing Queue..." : "Process All Videos"}</span>
+                <span>{isProcessing ? "Processing queue..." : "Process all videos"}</span>
               </Button>
 
               {activeItem?.cleanedUrl && (

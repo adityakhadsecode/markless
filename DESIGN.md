@@ -5,8 +5,6 @@
 
 Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.
 
-Coda's visual language is a confident, almost architectural marketplace identity built on a warm cream canvas (#f8f9eb) rather than stark white. The defining signature is monumental display type — a custom geometric grotesque (Monument Grotesk) set extremely tight (line-height 0.90) at sizes up to 134px, making headlines feel like carved signage rather than web copy. Every surface is bordered, not shadowed: hairline charcoal outlines on cream create a blueprint-like precision that pairs with pill-shaped tags, small rounded buttons (~13px radius), and one deep forest-green section that breaks the monochrome rhythm with organic blob shapes. Color is used as deliberate, sparse punctuation — a mint card here, a lilac or rose card there — while the structural palette stays earthy and achromatic. The effect is half editorial brutalism, half boutique storefront: warm, tactile, and emphatically physical rather than digital-glass.
-
 ## Tokens — Colors
 
 | Name | Value | Token | Role |
