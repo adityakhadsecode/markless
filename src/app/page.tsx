@@ -28,23 +28,24 @@ export default function Home() {
       <Header mode={mode} onModeChange={setMode} />
 
       {/* Hero Section: Centered on Cream Parchment (#f8f9eb) */}
-      <section className="w-full pt-14 pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
-        {/* Headline: Space Grotesk 600, balanced sizing and calm sentence case */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-[#000000] leading-[1.02] font-sans max-w-4xl">
-          Remove watermarks.
-          <span className="block mt-1.5 text-[#3a3a34]">
-            No blur, no artifacts.
+      <section className="w-full pt-16 pb-8 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
+        {/* Monumental Display Headline: Space Grotesk 800, tight line-height 0.92, -0.01em tracking */}
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-[#000000] leading-[0.92] uppercase font-sans max-w-4xl">
+          REMOVE WATERMARKS.
+          <span className="block mt-2 text-[#202020]">
+            NO BLUR
+            NO ARTIFACTS
           </span>
         </h1>
 
-        {/* Subheadline: 17–19px in Olive Slate */}
-        <p className="mt-5 text-base sm:text-lg text-[#5a5a4f] max-w-2xl font-sans leading-relaxed">
-          In-browser mathematical reverse alpha blending for Google Gemini AI images and Veo videos.
+        {/* Subheadline: Space Grotesk 400 at 18–21px in Charcoal (#202020) */}
+        <p className="mt-6 text-base sm:text-lg md:text-xl text-[#5a5a4f] max-w-2xl font-sans leading-relaxed">
+          100% in-browser mathematical reverse alpha blending for Google Gemini AI images and Veo videos.
           Zero cloud uploads, zero generative hallucinations, and lossless audio preservation.
         </p>
 
         {/* Signature Mathematical Inversion Badge */}
-        <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#c0c2a9] bg-[#ffffff] px-3.5 py-1 text-xs font-mono text-[#202020]">
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#c0c2a9] bg-[#ffffff] px-3.5 py-1 text-xs font-mono text-[#202020]">
           <span className="text-[#5a5a4f]">Inversion equation:</span>
           <span className="font-semibold tabular-nums">P₀ = (P_w − α · 255) / (1 − α)</span>
         </div>
