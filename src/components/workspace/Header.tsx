@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { getAssetPath } from "@/lib/utils/asset-path";
-import { SwarmBlock } from "@/components/swarm";
 
 export type StudioMode = "image" | "video";
 
@@ -28,13 +27,7 @@ export function Header({ mode, onModeChange }: HeaderProps) {
     <div className="w-full bg-[#f8f9eb] select-none">
       {/* Top Floating Announcement Pill Bar */}
       {showBanner && (
-        <SwarmBlock
-          id="header-announcement"
-          sectionId="section-header"
-          jsx="<HeaderAnnouncementBar />"
-          preferredAgent="Ada"
-          className="w-full pt-3 px-3 sm:px-6 max-w-7xl mx-auto"
-        >
+        <div className="w-full pt-3 px-3 sm:px-6 max-w-7xl mx-auto">
           <div className="w-full bg-[#1e1e1e] text-[#e8e9dc] rounded-[10px] px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between font-mono text-[11px] sm:text-[12px] tracking-normal">
             <div className="truncate flex-1 pr-3 text-[#dcded0]">
               <span>Enjoying Markless? Support the project on Buy Me a Coffee.</span>
@@ -56,112 +49,117 @@ export function Header({ mode, onModeChange }: HeaderProps) {
               <X className="h-4 w-4" />
             </button>
           </div>
-        </SwarmBlock>
+        </div>
       )}
 
       {/* Main Top Navigation Header */}
-      <SwarmBlock
-        id="header-nav"
-        sectionId="section-header"
-        jsx="<HeaderNavigationBar mode={mode} />"
-        preferredAgent="Turing"
-        className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-4"
-      >
-        <header className="w-full flex items-center justify-between">
-          {/* Left: Monumental Wordmark with Subtitle */}
-          <div className="flex items-center">
-            <a
-              href={getAssetPath("/") || "/"}
-              className="group flex flex-col justify-center select-none"
-            >
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-2xl sm:text-[28px] tracking-tight text-[#000000] font-sans leading-none">
-                  Markless
-                </span>
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded-[5px] bg-[#003d21] text-[#aafdc0] font-mono text-[10px] font-medium tracking-normal">
-                  v2.0
-                </span>
-              </div>
-              <span className="font-mono text-[10px] text-[#5a5a4f] tracking-normal mt-1">
-                Reverse alpha restoration
+      <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-4 flex items-center justify-between">
+        {/* Left: Reimagined Monumental Wordmark with Subtitle */}
+        <div className="flex items-center">
+          <a
+            href={getAssetPath("/") || "/"}
+            className="group flex flex-col justify-center select-none"
+          >
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-2xl sm:text-[28px] tracking-tight text-[#000000] font-sans leading-none">
+                Markless
               </span>
-            </a>
-          </div>
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded-[5px] bg-[#003d21] text-[#aafdc0] font-mono text-[10px] font-medium tracking-normal">
+                v2.0
+              </span>
+            </div>
+            <span className="font-mono text-[10px] text-[#5a5a4f] tracking-normal mt-1">
+              Reverse alpha restoration
+            </span>
+          </a>
+        </div>
 
-          {/* Right Group: Navigation links + Submit Issue + CTA Button */}
-          <div className="flex items-center gap-6 sm:gap-8">
-            {/* Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-6 sm:gap-7 text-[14px] font-medium text-[#1a1a1a] font-sans">
-              {/* Products with studio toggle dropdown */}
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => setShowProductsMenu(!showProductsMenu)}
-                  className="hover:text-black transition-colors cursor-pointer flex items-center gap-1.5"
-                >
-                  <span>Studios</span>
-                  <ChevronDown className="h-4 w-4 text-[#5a5a4f]" />
-                </button>
-
-                {showProductsMenu && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-[#ffffff] border border-[#c0c2a9] rounded-[12px] py-1.5 z-50 shadow-sm">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onModeChange("image");
-                        setShowProductsMenu(false);
-                        scrollToStudio();
-                      }}
-                      className="w-full text-left px-4 py-2 text-xs font-mono text-[#202020] hover:bg-[#edeee1] flex items-center justify-between"
-                    >
-                      <span>Image Studio</span>
-                      <span className="text-[10px] text-[#5a5a4f]">Gemini</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onModeChange("video");
-                        setShowProductsMenu(false);
-                        scrollToStudio();
-                      }}
-                      className="w-full text-left px-4 py-2 text-xs font-mono text-[#202020] hover:bg-[#edeee1] flex items-center justify-between"
-                    >
-                      <span>Video Studio</span>
-                      <span className="text-[10px] text-[#5a5a4f]">Veo</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-
+        {/* Right Group: Navigation links + Submit Issue + CTA Button */}
+        <div className="flex items-center gap-6 sm:gap-8">
+          {/* Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-6 sm:gap-7 text-[14px] font-medium text-[#1a1a1a] font-sans">
+            {/* Products with studio toggle dropdown */}
+            <div className="relative">
               <button
                 type="button"
-                onClick={scrollToHowItWorks}
-                className="hover:text-black transition-colors cursor-pointer"
+                onClick={() => setShowProductsMenu(!showProductsMenu)}
+                className="hover:text-black transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                Architecture
+                <span>Studios</span>
+                <ChevronDown className="h-4 w-4 text-[#5a5a4f]" />
               </button>
 
-              <a
-                href="https://github.com/adityakhadsecode/markless/issues/new"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-black transition-colors cursor-pointer"
-              >
-                Submit Issue
-              </a>
-            </nav>
+              {showProductsMenu && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-[#ffffff] border border-[#c0c2a9] rounded-[12px] py-1.5 z-50 shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onModeChange("image");
+                      setShowProductsMenu(false);
+                      scrollToStudio();
+                    }}
+                    className={`w-full text-left px-4 py-2 text-xs transition-colors cursor-pointer ${
+                      mode === "image"
+                        ? "bg-[#edeee1] font-semibold text-black"
+                        : "text-[#202020] hover:bg-[#f8f9eb]"
+                    }`}
+                  >
+                    Image Studio (Gemini) {mode === "image" && "✓"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onModeChange("video");
+                      setShowProductsMenu(false);
+                      scrollToStudio();
+                    }}
+                    className={`w-full text-left px-4 py-2 text-xs transition-colors cursor-pointer ${
+                      mode === "video"
+                        ? "bg-[#edeee1] font-semibold text-black"
+                        : "text-[#202020] hover:bg-[#f8f9eb]"
+                    }`}
+                  >
+                    Video Studio (Veo) {mode === "video" && "✓"}
+                  </button>
+                </div>
+              )}
+            </div>
 
-            {/* CTA Button */}
+            <a
+              href="#approach"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToHowItWorks();
+              }}
+              className="hover:text-black transition-colors cursor-pointer"
+            >
+              Approach
+            </a>
+          </nav>
+
+          {/* Right utility items: Submit Issue + Get Started */}
+          <div className="flex items-center gap-4 sm:gap-5">
+            {/* Submit Issue on GitHub link */}
+            <a
+              href="https://github.com/adityakhadsecode/markless/issues/new"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:inline-flex items-center text-[13px] font-medium text-[#1a1a1a] hover:text-black transition-colors font-sans"
+            >
+              Submit issue
+            </a>
+
+            {/* Filled Primary CTA Button */}
             <button
               type="button"
               onClick={scrollToStudio}
-              className="bg-[#202020] hover:bg-black text-[#ffffff] text-xs sm:text-sm font-medium px-4 py-2 sm:px-5 sm:py-2.5 rounded-[10px] transition-transform duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] cursor-pointer font-sans"
+              className="bg-[#1c1c1c] hover:bg-black text-[#ffffff] font-medium text-[14px] px-5 py-2.5 rounded-full transition-transform duration-150 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] cursor-pointer font-sans whitespace-nowrap"
             >
-              Start Restoring
+              Get started
             </button>
           </div>
-        </header>
-      </SwarmBlock>
+        </div>
+      </header>
     </div>
   );
 }
