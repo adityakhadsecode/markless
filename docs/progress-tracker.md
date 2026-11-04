@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-- **Phase 4: Polish, Testing & Deployment Readiness** (Complete)
+- **Phase 7: Live Agent Swarm Page Rebuild** (Complete)
 
 ---
 
@@ -13,6 +13,25 @@
 ---
 
 ## Completed
+
+- [x] **Phase 7: Live Agent Swarm Page Rebuild (CSS Modules & Swarm Choreography)**:
+  - Rebuilt page architecture with `SwarmProvider`, `SwarmSection`, `SwarmBlock`, `SwarmHeadline`, and `SwarmController`.
+  - Every visual block on the page is real, server-rendered HTML marked `data-block` with exactly one child `.fill`.
+  - Four states implemented via `SwarmBlock.module.css`:
+    - `empty`: unbuilt blocks hidden only under `@media (scripting: enabled) and (prefers-reduced-motion: no-preference)`. Complete without JS or with reduced motion.
+    - `mark`: cursor drags dashed blue marquee (`1.5px dashed #2563eb`) from top-left to bottom-right with live dynamic "W × H" label.
+    - `rough`: solid blue outline with 4 square corner handles, grey skeleton gradient shimmer pseudo-element (`::before`), and dark floating tooltip with JSX line from `attr(data-jsx)`.
+    - `done`: content enters with short scale and blur, followed by animated blue glow flash on border.
+  - 12 named agent cursors (`Ada`, `Hopper`, `Lovelace`, `Torvalds` [Cobalt], `Turing`, `Pascal`, `Dijkstra`, `Ritchie` [Mint], `Shannon`, `Knuth`, `Hamilton`, `Wozniak` [Lilac]) moved by a single `requestAnimationFrame` loop in page coordinates (`translate3d(x, y, 0)`).
+  - On a job: cursors tween with ease-in-out and a slight perpendicular bow (±35px) off the straight line.
+  - Idle: cursors drift in a loose organic flock around the active section bounding box.
+  - Round-robin sharing up to 4 cursors per section, with support for named cursor overrides (`preferredAgent`).
+  - Headlines typed into an absolutely positioned overlay over transparent full text so layout never reflows, with a caret in the agent's brand color that the cursor follows in real time.
+  - Fixed HUD log console in corner displaying timestamp, agent tag in brand color, and real-time block actions.
+  - Top-to-bottom build on first load with smooth camera auto-scroll keeping the lowest block in view without highest leaving screen, overlapping and starting the next section while scrolling.
+  - Deliberate user scroll detection (2 notches in 0.5s, 60px touch drag, scroll keys) hands over to `IntersectionObserver` (?play URL parameter disables).
+  - Skip (finish all blocks immediately) and Rebuild (drops blocks back to skeleton, then empty from bottom up, smooth scrolls to top, and plays again).
+  - Clean cancellation on unmount and restarts. Production build verified clean.
 
 - [x] Analyzed image watermark specifications:
   - Calibrated alpha masks for V1 (legacy) and V2 (Gemini 3.5+).
